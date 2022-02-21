@@ -66,7 +66,7 @@ jobs:
           path: dist/gaphor-${{ steps.setup_and_test.outputs.version }}-py3-none-any.whl
       - name: Build AppImage
         run: |
-          poetry run poe package
+          jhbuild run poetry run poe package
           cd _packaging/appimage
           make dist
       - name: Upload gaphor-${{ steps.setup_and_test.outputs.version }}-x86_64.AppImage
