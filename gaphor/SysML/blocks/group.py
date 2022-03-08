@@ -15,7 +15,7 @@ def block_property_group(parent, element):
 
 @ungroup.register(Block, Property)
 def property_ungroup(parent, element):
-    if not element.association:
+    if not element.association and element in parent.ownedAttribute:
         del parent.ownedAttribute[element]
         return True
     return False
